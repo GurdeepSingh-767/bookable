@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+
+    <title>admin/bookings </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Navbar*/
+        header {
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        .contact_btn {
+            background-color: red;
+            text-decoration: none;
+            color: #fff;
+            padding: 6px 20px;
+            margin-right: 10px;
+        }
+
+        .right_nav i {
+
+            color: #fff;
+            margin-left: 15px;
+            margin-right: 20px;
+            padding-top: 10px;
+
+            padding-bottom: 10px;
+        }
+
+        /*List Your Business*/
+        .form-popup {
+            background-color: #000608;
+            display: none;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgb(0, 0, 0);
+            padding: 50px;
+            border-radius: 25px;
+            opacity: 85%;
+
+        }
+
+        .radio-option {
+            color: white;
+            font-size: larger;
+
+        }
+
+
+        .submit-cance {
+
+            align-content: center;
+        }
+
+
+
+
+
+        .list-business {
+            margin-right: 27px;
+        }
+
+
+        .navbar-nav .nav-item {
+
+            margin-right: 50px;
+        }
+
+        #book {
+            color: #ec5600;
+        }
+
+
+
+
+
+
+
+        /* Search */
+        .search-btn {
+            display: flex;
+
+        }
+
+        .col-sm-3 {
+            align-items: center;
+
+        }
+
+        .search-btn-1 {
+            margin-left: 20%;
+            margin-right: 17px;
+        }
+
+        .search-btn-2 {
+
+            margin-right: 17px;
+        }
+
+        .search-btn-3 {
+
+            margin-right: 17px;
+        }
+
+
+        /*Up-Button*/
+        .gotopbtn {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: #27ae60;
+            bottom: 40px;
+            right: 50px;
+
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            color: rgb(0, 0, 0);
+            font-size: 22px;
+            border-radius: 3rem;
+        }
+
+
+
+        /* About Us */
+
+
+        #about-us {
+            background-color: #21211f;
+            color: white;
+
+            padding: 20px;
+
+        }
+
+        .about {
+
+            text-align: center;
+        }
+
+        .list {
+
+            list-style-position: inside;
+        }
+
+
+
+
+
+        /* Footer */
+        .footer {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        /*My -Booking*/
+        .my-book {
+            margin-left: 150px;
+
+        }
+    </style>csss
+
+
+</head>
+
+<body>
+    {% load static %}
+    <!--Navbar-->
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar   navbar-expand-lg navbar-dark bg-dark  fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'Teal Modern Company Logo (2).png' %}" alt="" width="30" height="24"
+                            class="d-inline-block align-text-top">
+                        <span id="book"> BOOK</span>ABLE
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class=" navbar-nav mx-auto mb-6 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active " href="#about-us">About Us</a>
+                            </li>
+
+
+
+                        </ul>
+                        <button type="button" class=" list-business btn btn-outline-warning" onclick="openForm()">List
+                            Venue</button>
+
+                        <div class="dropdown dropstart">
+                            <button class="btn btn-secondary btn-danger dropdown-toggle rounded-pill" type="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                    class="fa-solid fa-user"></i>
+
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Account Setting</a></li>
+                                <li><a class="dropdown-item" href="#">Get Help</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item active" href="index.html">Logout</a></li>
+                            </ul>
+                        </div>
+
+                        <script>
+                            function openForm() {
+                                document.getElementById("myForm").style.display = "block";
+
+                            }
+
+                            function closeForm() {
+                                document.getElementById("myForm").style.display = "none";
+                            }
+
+                            function open_Form() {
+                                document.getElementById("logoutFrom").style.display = "block";
+
+                            }
+
+                            function close_Form() {
+                                document.getElementById("logoutFrom").style.display = "none";
+                            }
+
+                            function alert1() {
+                                alert("Please login")
+                            }
+
+
+                            var toastTrigger = document.getElementById('liveToastBtn')
+                            var toastLiveExample = document.getElementById('liveToast')
+                            if (toastTrigger) {
+                                toastTrigger.addEventListener('click', function () {
+                                    var toast = new bootstrap.Toast(toastLiveExample)
+
+                                    toast.show()
+                                })
+                            }
+
+
+                            /*PopOver For Contact*/
+                            $(function () {
+                                $('.example-popover').popover({
+                                    container: 'body'
+                                })
+                            })
+                        </script>
+
+
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+    </header>
+
+    <br>
+    <br>
+
+
+    <!--Venue List-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid  position-relative">
+            <a class="navbar-brand my-book" href="#">
+                <h2><strong> Bookings</strong></h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+                <form class="d-flex position-absolute top-0 end-50">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div> -->
+        </div>
+    </nav>
+
+
+
+
+
+
+
+    <!--TableS-->
+    <!--TableS-->
+
+    <div class="container mt-3">
+        <table class="table  table-striped border border-dark border-2 rounded-top ">
+            <thead>
+                <tr>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Phone no.</th>
+                    <th scope="col">Customer's Email ID</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Booking Starting Date</th>
+                    <th scope="col">Booking Ending Date</th>
+                    <th scope="col">Venue Name </th>
+                    <th scope="col">Type of Venue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in hall_list %}
+                <tr>
+                    <td>{{a.cus_name}}</td>
+                    <td>{{a.phn_no}}</td>
+                    <td>{{a.eid}}</td>
+                    <td>{{a.address}}</td>
+                    <td>{{a.datestart}}</td>
+                    <td>{{a.dateend}}</td>
+                    <td>{{a.vname}}</td>
+                    <td>{{a.type}}</td>
+                    <!--  <td><button type="button" class="btn btn-success rounded mx-4"><i class="fa-sharp fa-solid fa-circle-check"></i></button>
+                        <button type="button" class="btn btn-success btn-danger rounded"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </td>-->
+                </tr>
+                {% endfor %}
+                {% for b in garden_list %}
+                <tr>
+                    <td>{{b.cus_name}}</td>
+                    <td>{{b.phn_no}}</td>
+                    <td>{{b.eid}}</td>
+                    <td>{{b.address}}</td>
+                    <td>{{b.datestart}}</td>
+                    <td>{{b.dateend}}</td>
+                    <td>{{b.vname}}</td>
+                    <td>{{b.type}}</td>
+                    <!--  <td><button type="button" class="btn btn-success rounded mx-4"><i class="fa-sharp fa-solid fa-circle-check"></i></button>
+                        <button type="button" class="btn btn-success btn-danger rounded"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </td>-->
+                </tr>
+                {% endfor %}
+                {% for c in pool_list %}
+                <tr>
+                    <td>{{c.cus_name}}</td>
+                    <td>{{c.phn_no}}</td>
+                    <td>{{c.eid}}</td>
+                    <td>{{c.address}}</td>
+                    <td>{{c.datestart}}</td>
+                    <td>{{c.dateend}}</td>
+                    <td>{{c.vname}}</td>
+                    <td>{{c.type}}</td>
+                    <!--  <td><button type="button" class="btn btn-success rounded mx-4"><i class="fa-sharp fa-solid fa-circle-check"></i></button>
+                        <button type="button" class="btn btn-success btn-danger rounded"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </td>-->
+                </tr>
+                {% endfor %}
+                {% for d in community_hall_list %}
+                <tr>
+                    <td>{{d.cus_name}}</td>
+                    <td>{{d.phn_no}}</td>
+                    <td>{{d.eid}}</td>
+                    <td>{{d.address}}</td>
+                    <td>{{d.datestart}}</td>
+                    <td>{{d.dateend}}</td>
+                    <td>{{d.vname}}</td>
+                    <td>{{d.type}}</td>
+                    <!--  <td><button type="button" class="btn btn-success rounded mx-4"><i class="fa-sharp fa-solid fa-circle-check"></i></button>
+                        <button type="button" class="btn btn-success btn-danger rounded"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </td>-->
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <!--Upbutton-->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--List  Venue-->
+    <div class="form-popup" id="myForm">
+        <form action="list.html" class="form-container">
+            <form>
+                <div class="form-check">
+                    <div class="form-group ">
+                        <h3 class="fw-bold mb-2  text-white">Which service are you interested in?</h3>
+                        <br>
+
+                        <div class="radio-option">
+                            <div>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">List your venues
+                                </label>
+                            </div>
+                            <br>
+                            <br>
+
+                            <div>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" checked disabled>
+                                <label class="form-check-label" for="flexRadioDefault2"> List as Vendors
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+
+                        <div class=" container submit-cancel">
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <button type="submit" class="btn btn-success text-center">Submit</button>
+                                </div>
+                                <div class="col-lg-4">
+                                    <button type="button" class="btn btn-danger btn text-center"
+                                        onclick="closeForm()">Cancel</button>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+            </form>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

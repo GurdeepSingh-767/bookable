@@ -1,0 +1,972 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="./styles/style.css">-->
+
+
+
+  <!--Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+
+    /* Navbar */
+    header {
+      background-color: #f5f5f5;
+      box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 10px;
+    }
+
+    .contact_btn {
+      background-color: red;
+      text-decoration: none;
+      color: #fff;
+      padding: 6px 20px;
+      margin-right: 10px;
+    }
+
+    .right_nav i {
+
+      color: #fff;
+      margin-left: 15px;
+      margin-right: 20px;
+      padding-top: 10px;
+
+      padding-bottom: 10px;
+    }
+
+    .form-popup {
+      background-color: #000608;
+      text-align: center;
+      display: none;
+      position: fixed;
+
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid rgb(0, 0, 0);
+      padding: 50px;
+      border-radius: 25px;
+      opacity: 85%;
+
+    }
+
+
+
+
+    .navbar-nav .nav-item {
+
+      margin-right: 30px;
+    }
+
+    #book1 {
+      color: #ec5600;
+    }
+
+
+
+    /* Carousel */
+
+    .carousel-inner h5 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 107px;
+      color: rgb(255, 255, 255);
+
+    }
+
+
+
+
+    /*  Work */
+    .box-1 {
+      grid-area: b1;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .box-2 {
+      grid-area: b2;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .box-3 {
+      grid-area: b3;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .box-4 {
+      grid-area: b4;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .box-5 {
+      grid-area: b5;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .info {
+      display: grid;
+      grid-template-rows: 300px;
+      grid-template-areas: "b5 b1 b2 b3 b4";
+      gap: 5px;
+      margin-top: 10px;
+      margin-left: 40px;
+      margin-right: 50px;
+      text-align: center;
+    }
+
+    .info img {
+      height: 80px;
+      width: 80px;
+      border: 1px solid black;
+      border-radius: 40px;
+      padding: 8px;
+      background-color: rgb(220, 240, 240);
+    }
+
+    .info h3 {
+      font-family: sans-serif;
+      font-size: 40px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    /* City*/
+    .boxs-1 {
+      grid-area: b1;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-2 {
+      grid-area: b2;
+      background-color: white;
+      padding-left: 50px;
+      padding-top: 20px;
+    }
+
+    .boxs-3 {
+      grid-area: b3;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-4 {
+      grid-area: b4;
+      background-color: white;
+      padding-right: 45px;
+      padding-top: 20px;
+    }
+
+    .boxs-5 {
+      grid-area: b5;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-6 {
+      grid-area: b6;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-7 {
+      grid-area: b7;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-8 {
+      grid-area: b8;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-9 {
+      grid-area: b9;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-10 {
+      grid-area: b10;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .boxs-11 {
+      grid-area: b11;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .infos {
+      display: grid;
+      grid-template-rows: 250px;
+      grid-template-areas: "b8 b9 b10 b1 b2 b3 b4 b5 b6 b7 b11";
+      gap: 5px;
+      margin-top: 10px;
+      margin-left: 40px;
+      margin-right: 50px;
+      text-align: center;
+      padding-top: 30px;
+    }
+
+    .infos img {
+      height: 80px;
+      width: 80px;
+      border: 1px solid black;
+      border-radius: 40px;
+      padding: 8px;
+      background-color: rgb(220, 240, 240);
+    }
+
+    .infos h3 {
+      font-family: sans-serif;
+      font-size: 40px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    /*hr*/
+    #hr1 {
+      color: black;
+      width: 70%;
+      margin-top: 80px;
+      padding-top: 2px;
+      margin-left: 270px;
+    }
+
+    /*hr*/
+    #hr2 {
+      color: black;
+      width: 70%;
+      margin-top: 30px;
+      padding-top: 2px;
+      margin-left: 270px;
+    }
+
+    /*  Why */
+    .bx-1 {
+      grid-area: b1;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .b-2 {
+      grid-area: b2;
+      background-color: white;
+      padding-top: 20px;
+      padding-left: 40px;
+    }
+
+    .b-3 {
+      grid-area: b3;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .b-4 {
+      grid-area: b4;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .b-5 {
+      grid-area: b5;
+      background-color: white;
+      padding: 20px;
+    }
+
+    .why {
+      display: grid;
+      grid-template-rows: 300px;
+      grid-template-areas: "b5 b1 b2 b3 b4";
+      gap: 5px;
+      margin-top: 10px;
+      margin-left: 40px;
+      margin-right: 50px;
+      text-align: center;
+    }
+
+    .why img {
+      height: 80px;
+      width: 80px;
+      border: 1px solid black;
+      border-radius: 40px;
+      padding: 8px;
+      background-color: rgb(220, 240, 240);
+    }
+
+    .why h3 {
+      font-family: sans-serif;
+      font-size: 40px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    /*hr*/
+    #hr3 {
+      color: black;
+      width: 70%;
+      margin-top: 30px;
+      padding-top: 2px;
+      margin-left: 270px;
+    }
+
+    /*Reviews*/
+    .card-img-top {
+      height: 20px;
+      width: 20px;
+      margin: 10px;
+    }
+
+    .cards-wrapper {
+      display: flex;
+    }
+
+    .card {
+      margin: 0 1em;
+      width: calc(100%/3);
+    }
+
+    #carouselExampleControls h3 {
+      font-family: sans-serif;
+      font-size: 30px;
+      padding-bottom: 20px;
+      text-align: center;
+      padding-top: 30px;
+    }
+
+
+    /*hr*/
+    #hr4 {
+      color: black;
+      width: 70%;
+      margin-top: 30px;
+      padding-top: 2px;
+      margin-left: 270px;
+    }
+
+    .cards-img-top {
+      height: 20px;
+      width: 20px;
+      margin-left: 420px;
+    }
+
+
+
+
+    /* Footer */
+    .footer {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+
+
+
+
+
+
+    /* About Us */
+
+
+    #about-us {
+      background-color: #21211f;
+      color: white;
+
+      padding: 20px;
+
+    }
+
+    .about {
+
+      text-align: center;
+    }
+
+    .list {
+
+      list-style-position: inside;
+    }
+
+
+
+    /*Up-Button*/
+    .gotopbtn {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      background: #27ae60;
+      bottom: 40px;
+      right: 50px;
+
+      text-decoration: none;
+      text-align: center;
+      line-height: 50px;
+      color: rgb(0, 0, 0);
+      font-size: 22px;
+      border-radius: 3rem;
+    }
+  </style>
+
+
+  <!-- Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+  <!--Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="./favicon_package_v0.16//site.webmanifest">
+  <link rel="mask-icon" href="./favicon_package_v0.16//safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#ffffff">
+  <title>BOOKABLE</title>
+
+
+  <!-- Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <!--Navbar-->
+  <header>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark  fixed-top">
+        <div class="container-fluid">
+          {% csrf_token %}
+          {% load static %}
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'Teal Modern Company Logo (2).png' %}" alt="" width="30" height="24"
+              class="d-inline-block align-text-top">
+            <span id="book1"> BOOK</span>ABLE
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-6 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" onclick="alert1()">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active " href="#about-us">About Us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active " href="#carouselExampleControls">Reviews</a>
+              </li>
+              <li class="nav-item">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Services
+                </button>
+
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link active" href="#Contact-US">Contact Us</a>
+              </li>
+            </ul>
+            <button type="button" class="btn btn-danger rounded-pill" onclick="openForm()"><i
+                class="fa-solid fa-user"></i> Login</button>
+            <script>
+              function openForm() {
+                document.getElementById("myForm").style.display = "block";
+
+              }
+
+              function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+              }
+
+              function alert1() {
+                alert("Please login")
+              }
+            </script>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!--Services-->
+    <div class="modal fade modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static"
+      data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel"> <img src="{% static 'Teal Modern Company Logo (2).png' %}"
+                alt="" width="30" height="24" class="d-inline-block px-1">Bookable</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h3>First register or login to the website.
+
+              <h3>For booking the venue:</h3>
+              <ul type="" cricle>
+                <li> Select your city and occasion type .</li>
+                <li> Select the desired venue from the list displayed.</li>
+                <li> Read the venue details and book the venue.</li>
+                <li> Fill the Booking form and enter valid information.</li>
+                <li> Confirmation mail will be send to your given mail id.</li>
+
+                <h3> For enlisting your venue:</h3>
+                <li> 1. Click on List your business.</li>
+                <li> 2. List your venue</li>
+                <li> 3.Fill the venue enlisting form</li>
+                <li> 4. Add venue information and add contact details. </li>
+                <li> 5. Click on Submit.Your venue will be enlisted.</li>
+              </ul>
+          </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-primary text-center " data-bs-dismiss="modal">Understood</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </header>
+
+
+
+  </div>
+
+  <!-- Carousel-->
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'CAR1 (1).webp' %}" class="d-block w-100" alt="marriage.png">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Find Your Perfect Event Venue</h5>
+
+        </div>
+      </div>
+      <!--    <div class="carousel-item">
+        <img src="{% static 'Main.jpg' %}" class="d-block w-100" alt="party.png">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Find Your Perfect Event Venue</h5>
+
+        </div>
+      </div>-->
+      <div class="carousel-item">
+        <img src="{% static 'Party.jpg' %}" class="d-block w-100" alt="Party.pic">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Find Your Perfect Event Venue</h5>
+
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+  <!--Upbutton-->
+  <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+
+
+  <!--Work-->
+  <section class="info">
+    <br><br>
+    <div class="box-1"><a href="#"><br><br><br><br><img src="{% static 'discover.png' %}" alt=""></a><br><b><br>
+        <h4> Discover</h4>
+      </b><br>Browse Venues to create <br> your shortlist</div>
+    <div class="box-2"><b>
+        <h3>How it Works ?</h3>
+      </b><a href="#"><br><img src="{% static 'shortlist.png' %}" alt=""></a><br><b><br>
+        <h4>Shortlist</h4>
+      </b><br>Get negotiated rates for your <br> shortlisted venues</div>
+    <div class="box-3"><a href="#"><br><br><br><br></b><img src="{% static 'book.png' %}" alt=""></a><br><b><br>
+        <h4>Book</h4>
+      </b><br> Book online at our guaranteed <br> lowest price</div>
+  </section>
+
+  <hr id="hr1">
+
+  <!--City-->
+  <section class="infos">
+    <div class="boxs-1"><a href="#"><br><br><br><br><img src="{% static 'dewas.png' %}" alt=""></a><br><b>
+        <h4> Dewas</h4>
+      </b><br></div>
+    <div class="boxs-2"><a href="#"><br><br><br><br><img src="{% static 'indore.png' %}" alt=""></a><br><b>
+        <h4>Indore</h4>
+      </b><br></div>
+    <div class="boxs-3"><b>
+        <h3>Select City</h3><br>
+      </b><a href="#"><img src="{% static 'ujjain.png' %}" alt=""></a><br><b>
+        <h4>Ujjain</h4>
+      </b><br></div>
+    <div class="boxs-4"><a href="#"><br><br><br><br></b><img src="{% static 'bhopal.png' %}" alt=""></a><br><b>
+        <h4>Bhopal</h4>
+      </b><br></div>
+    <div class="boxs-5"><a href="#"><br><br><br><br></b><img src="{% static 'gwalior.png' %}" alt=""></a><br><b>
+        <h4>Gwalior</h4>
+      </b><br></div>
+    <div class="boxs-6"><br><br><br><br></b><br><b><br>
+        <h4></h4>
+      </b><br></div>
+    <div class="boxs-7"><br><br><br><br></b><br><b><br>
+        <h4></h4>
+      </b><br></div>
+    <div class="boxs-8"><br><br><br><br></b><br><b><br>
+        <h4></h4>
+      </b><br></div>
+    <div class="boxs-9"><br><br><br><br></b><br><b><br>
+        <h4></h4>
+      </b><br></div>
+    <div class="boxs-10"><br><br><br><br></b><br><b><br>
+        <h4></h4>
+      </b><br></div>
+    <div class="boxs-11"><br><br><br><br><br><b><br>
+        <h4></h4>
+      </b><br></div>
+  </section>
+
+  <hr id="hr2">
+
+  <!--WhyBookable-->
+  <section class="why">
+    <br><br>
+    <div class="b-1"><a href="#"><br><br><br><br><br><img src="{% static 'money.png' %}" alt=""></a><br><b><br>
+        <h4>Save Money</h4>
+      </b><br>Lowest Price Guaranteed</div>
+    <div class="b-2"><b>
+        <h3>Why Bookable ?</h3>
+      </b><a href="#"><br><img src="{% static 'verify.png' %}" alt=""></a><br><b><br>
+        <h4>Verified Listing</h4>
+      </b><br>Dependable & Accurate</div>
+    <div class="b-3"><a href="#"><br><br><br><br></b><img src="{% static 'booking.png' %}" alt=""></a><br><b><br>
+        <h4>Hassle Free Booking</h4>
+      </b><br>Convenience</div>
+  </section>
+
+  <hr id="hr3">
+
+  <!--Reviews-->
+  <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <b>
+      <h3>A Word From Our Customers</h3>
+    </b>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="cards-wrapper">
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">Amazing service and support by the team. Very friendly, knows what you are looking
+                for, fetches amazing vanues at lowest prices. Keep up the good work.</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><br><b>Kuldeep Singh</b><br>Booked a Social Function Venue</p>
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">I really appreciate from the bottom of my heart the service you provide. It was
+                really very hard to find a perfect venue for a big corporate party at Indore but Bookable made it too
+                easy.</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><br><b>Jiya Solanki</b><br>Booked a Corporate Party Venue</p>
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">The team was very swift in getting the deals for all the hotels we had requested
+                them. The final quotes from the hotels were definitely way less than the market price. Hence, Bookable
+                does get you value for money. Keep up the good work.</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><b>Hardeep Singh</b><br>Booked a Corporate Party Venue</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="cards-wrapper">
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">Thank you so much! You did an amazing job on such short notice. Bookable did a
+                major help and I'll definitely refer you. Good luck for the future!</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><br><b>Shailaja Kocharekar</b><br>Booked a Birthday Party Venue</p>
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">Thank you Bookable. It's not easy to find a good venue specially when it is you
+                D-Day (Wedding). Thank you Bookable. You made my day memorable. Highly appreciated.</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><br><b>Mustkeem Hussain</b><br>Booked a Wedding Venue</p>
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">Very quick response to my query for searching the venue. Thanks Bookable for quick
+                response and making things very clear before I could finalize everything.</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><br><b>Ishika Bhatia</b><br>Booked a Team Party Venue</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="cards-wrapper">
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">Bookable has been of great help in searching a location for my very special day
+                (Wedding). Special thanks to keep accommodating with our change requests. Kudos to the team!</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><b>Gurdeep Singh</b><br>Booked a Wedding Venue</p>
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">This website is really good. It helped me book a venue for my birthday and the
+                package that I got was in my budget, thank you so much guys.</h6>
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><br><b>Ashi Solanki</b><br>Booked a Birthday Party Venue</p>
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">The team was very cooperative and understanding. Special thanks to Bookable for
+                planning such an amazing event.</h6>
+
+              <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+              <p class="card-text"><br><br><br><b>Jitika Joshi</b><br>Booked a Social Function Venue</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr id="hr4">
+
+  <!--About Us -->
+  <div id="about-us">
+    <h1 class="about">About Us</h1>
+    <p>BOOKABLE is an online venue booking portal with the widest range of venues available . At Bookable, we connect
+      our customers with the best venues in their city based on their unique requirements so that they can get the ideal
+      deal for their event. We believe that online venue booking is just as personal as offline venue booking, except
+      much simpler and our goal is to provide hassle-free online venue booking experience to our customers, all the way
+      from browsing and shortlisting venues to booking the final one.
+
+    </p>
+
+    <p>Our approach is based on 3 principles:</p>
+
+    <p>
+    <ul type="diamond" class="list">
+      <li>Clutter-free presentation of venues on our portal</li>
+      <li>Easier selection process with all accurate and updated venue details and descriptions available</li>
+      <li>Faster and on time bookings</li>
+    </ul>
+    </p>
+
+  </div>
+
+  <!--Footer-->
+  <!--COPYRIGHT-->
+
+  <div class="footer text-center  bg-dark">
+    <h4 class="display-5 text-center text-white mb-4 " id="Contact-US">
+      <strong>
+        Contact-US
+      </strong>
+      </h5>
+
+      <div class="row  bg-dark text-light pb-3">
+        <div class="col-sm12 col-md-6 col-lg-4">
+          <h3><i class="fa-solid fa-house-user"></i>
+            SAIT INDORE</h3>
+        </div>
+        <div class="col-sm12 col-md-6 col-lg-4">
+          <h3><i class="fa-regular fa-envelope"></i> bookable1515@gmail.com</h3>
+        </div>
+        <div class="col-sm12 col-md-6 col-lg-4">
+          <h3><i class="fa-solid fa-phone"></i></i>+91 7987291207</h3>
+        </div>
+
+      </div>
+      <div class="row ">
+        <section class="link">
+          <!-- Facebook -->
+          <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+              class="fab fa-facebook-f"></i></a>
+
+          <!-- Twitter -->
+          <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+              class="fab fa-twitter"></i></a>
+
+          <!-- Google -->
+          <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+              class="fab fa-google"></i></a>
+
+          <!-- Instagram -->
+          <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+              class="fab fa-instagram"></i></a>
+
+          <!-- Linkedin -->
+          <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+              class="fab fa-linkedin"></i></a>
+
+        </section>
+
+      </div>
+      <hr>
+      <div class="footer bg-dark">
+        <div class="row">
+          <div class="col text-center text-white  ">
+            <p>© 2020 Copyright: <a href="#">BOOKABLE</a></p>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+
+
+
+  <!--Login-->
+  <div class="form-popup" id="myForm">
+    <form action="login" class="form-container" method="POST">
+      {% csrf_token %}
+      <div class="form-group ">
+        <h2 class="fw-bold mb-2  text-white">Login</h2>
+        <p class="text-white-50 mb-5">Please enter your login and password!</p>
+        <div>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter email">
+        </div>
+        <br>
+
+
+
+      </div>
+      <div class="form-group">
+
+        <input type="password" name="password" class="form-control " id="exampleInputPassword1" placeholder="Password">
+      </div>
+
+
+      <br>
+      <div class="form-outline form-white mb-4">
+
+        <select class="form-select" id="autoSizingSelect" name="check">
+          <option selected hidden>As a</option>
+          <option value="1" {% if data.selected_lang=='1' %}selected{% endif %}>Customer</option>
+          <option value="2" {% if data.selected_lang=='2' %}selected{% endif %}> Venue Manger</option>
+          <option value="3" {% if data.selected_lang=='3' %}selected{% endif %}>Admin</option>
+
+
+
+        </select>
+        <label class="form-label" for="autoSizingSelect">As A</label>
+      </div>
+
+      <div>
+        <p class="mb-0 text-white">Don't have an account? <a href="SignUp.html" class="text-white-50 fw-bold">Sign
+            Up</a>
+        </p>
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="button" class="btn btn-danger btn" onclick="closeForm()">Cancel</button>
+    </form>
+  </div>
+
+
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

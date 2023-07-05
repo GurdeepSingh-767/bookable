@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'Manger.css' %}">
+
+
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!--Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_package_v0.16//site.webmanifest">
+    <link rel="mask-icon" href="./favicon_package_v0.16//safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Navbar*/
+        header {
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        .contact_btn {
+            background-color: red;
+            text-decoration: none;
+            color: #fff;
+            padding: 6px 20px;
+            margin-right: 10px;
+        }
+
+        .right_nav i {
+
+            color: #fff;
+            margin-left: 15px;
+            margin-right: 20px;
+            padding-top: 10px;
+
+            padding-bottom: 10px;
+        }
+
+        /*List Your Business*/
+        .form-popup {
+            background-color: #000608;
+            display: none;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgb(0, 0, 0);
+            padding: 50px;
+            border-radius: 25px;
+            opacity: 85%;
+
+        }
+
+        .radio-option {
+            color: white;
+            font-size: larger;
+
+        }
+
+
+        .submit-cance {
+
+            align-content: center;
+        }
+
+
+
+
+
+        .list-business {
+            margin-right: 27px;
+        }
+
+
+        .navbar-nav .nav-item {
+
+            margin-right: 50px;
+        }
+
+        #book {
+            color: #ec5600;
+        }
+
+
+
+
+
+        /* Search */
+        .search-btn {
+            display: flex;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+
+        }
+
+        .col-sm-3 {
+            align-items: center;
+
+        }
+
+        .search-btn-1 {
+            margin-left: 11%;
+            margin-right: 17px;
+        }
+
+        .search-btn-2 {
+
+            margin-right: 17px;
+        }
+
+        .search-btn-3 {
+
+            margin-right: 17px;
+        }
+
+
+
+
+
+
+        /* About Us */
+
+
+        #about-us {
+            background-color: #21211f;
+            color: white;
+
+            padding: 20px;
+
+        }
+
+        .about {
+
+            text-align: center;
+        }
+
+        .list {
+
+            list-style-position: inside;
+        }
+
+
+        /*Up-Button*/
+        .gotopbtn {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: #27ae60;
+            bottom: 40px;
+            right: 50px;
+
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            color: rgb(0, 0, 0);
+            font-size: 22px;
+            border-radius: 3rem;
+        }
+
+
+        /* Footer */
+        .footer {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+
+        .my-book {
+            margin-left: 150px;
+        }
+    </style>
+
+    <title>Manger </title>
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <header>
+        {% load static %}
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark  fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'Teal Modern Company Logo (2).png' %}" alt="" width="30" height="24"
+                            class="d-inline-block align-text-top">
+                        <span id="book"> BOOK</span>ABLE
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class=" navbar-nav mx-auto mb-6 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active " href="#about_us">About Us</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-dark" id="liveToastBtn">Queries</button>
+                                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive"
+                                        aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="{% static 'Teal Modern Company Logo (2).png' %}"
+                                                class="rounded me-2" alt="Bookable.com" width="30" height="24">
+                                            <strong class="me-auto">BOOKABLE</strong>
+                                            <small>Ask Your Queries</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label"> Enter Your
+                                                    Email-id</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                    placeholder="bookable@gmail.com">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Describe
+                                                    Your Query</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                    rows="3"></textarea>
+                                            </div>
+                                            <div><input class="btn btn-success  " type="submit" value="Submit">
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                        <button type="button" class=" list-business btn btn-outline-warning" onclick="openForm()">List
+                            your business</button>
+
+                        <div class="dropdown dropstart">
+                            <button class="btn btn-secondary btn-danger dropdown-toggle rounded-pill" type="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                    class="fa-solid fa-user"></i>
+
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Account Setting</a></li>
+                                <li><a class="dropdown-item" href="#">Get Help</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item active" href="index.html">Logout</a></li>
+                            </ul>
+                        </div>
+                        <!--<button type="button" class="btn btn-danger  rounded-pill" onclick="open_Form()"><i
+                                class="fa-solid fa-user"></i></button>-->
+                        <script>
+                            function openForm() {
+                                document.getElementById("myForm").style.display = "block";
+
+                            }
+
+                            function closeForm() {
+                                document.getElementById("myForm").style.display = "none";
+                            }
+
+                            function open_Form() {
+                                document.getElementById("logoutFrom").style.display = "block";
+
+                            }
+
+                            function close_Form() {
+                                document.getElementById("logoutFrom").style.display = "none";
+                            }
+
+                            function alert1() {
+                                alert("Please login")
+                            }
+
+
+
+                            var toastTrigger = document.getElementById('liveToastBtn')
+                            var toastLiveExample = document.getElementById('liveToast')
+                            if (toastTrigger) {
+                                toastTrigger.addEventListener('click', function () {
+                                    var toast = new bootstrap.Toast(toastLiveExample)
+
+                                    toast.show()
+                                })
+                            }
+
+                        </script>
+
+
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+    </header>
+
+
+
+
+    <!--Search--><br>
+    <br>
+    <form action="search_req" method="POST">
+        {% csrf_token %}
+        <div class="search-btn">
+            <div class="search-btn-1 col-sm-3 ">
+                <select class="form-select" name="venue" aria-label="Default select example">
+                    <option selected>Select Venue</option>
+                    {% for x in hall_list %}
+                    <option value="{{x.hall_name}}">{{x.hall_name}}</option>
+                    {% endfor %}
+                    {% for y in garden_list %}
+                    <option value="{{y.garden_name}}">{{y.garden_name}}</option>
+                    {% endfor %}
+                    {% for z in pool_list %}
+                    <option value="{{z.pool_name}}">{{z.pool_name}}</option>
+                    {% endfor %}
+                    {% for a in community_hall_list %}
+                    <option value="{{a.community_hall_name}}">{{a.community_hall_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="search-btn-2 col-sm-3">
+
+                <select class="form-select" aria-label="Default select example" name="type">
+                    <option selected Hidden>Select Type of Venue</option>
+                    <option value="hall">Hall</option>
+                    <option value="garden">Garden</option>
+                    <option value="pool">Pool Party</option>
+                    <option value="community_hall">Community Hall</option>
+
+
+                </select>
+            </div>
+            <div class="search-btn-3 col-sm-3">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="n"
+                    placeholder="Enter your login password">
+
+            </div>
+
+            <div class=" search-btn-4 col-sm-3">
+                <button type="submit" class="btn btn-primary  rounded-pill"><i
+                        class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+
+    </form>
+
+
+    <!--TableS-->
+
+    <div class="container mt-3">
+        <table class="table  table-striped border border-dark border-2 rounded-top ">
+            <thead>
+                <tr>
+                    <th scope="col">Venue Name </th>
+                    <th scope="col">Customer Name </th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Email-id</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Booking Starting Date</th>
+                    <th scope="col">Booking Ending Date</th>
+                    <th scope="col"> </th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in book_list %}
+                <form action="accept" method="POST">
+                    <tr>
+                        <input type="hidden" name="vid" value="{{b.id}}">
+                        <input type="hidden" name="ema" value="{{b.eid}}">
+                        <input type="hidden" name="vnm" value="{{b.vname}}">
+                        <input type="hidden" name="type" value="{{b.type}}">
+                        <td><label type="text" name="vname" value="{{b.vname}}">{{b.vname}}</label> </td>
+                        <td><label name="name" value="{{b.cus_name}}">{{b.cus_name}}</label> </td>
+                        <td><label name="phn" value="{{b.phn_no}}">{{b.phn_no}}</label> </td>
+                        <td><label name="em" value="{{b.eid}}">{{b.eid}}</label> </td>
+                        <td><label name="type" value="{{b.type}}">{{b.type}}</label> </td>
+                        <td> <label name="addr" value="{{b.address}}">{{b.address}}</label></td>
+                        <td><label name="dte" value="{{b.datestart}}">{{b.datestart}}></label></td>
+                        <td><label name="dte2" value="{{b.dateend}}">{{b.dateend}}></label></td>
+                        <td><button type="submit" class="btn btn-success rounded mx-4"><i
+                                    class="fa-sharp fa-solid fa-circle-check" name="{{b.id}}"></i></button>
+                            <!-- <button type="button" class="btn btn-success btn-danger rounded"><i
+                                class="fa-solid fa-circle-xmark"></i></button> -->
+                        </td>
+                    </tr>
+                </form>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <a class="navbar-brand my-book" href="#">
+        <h2><strong>
+                <center>Booked</center>
+            </strong></h2>
+    </a>
+
+
+
+    <!--BOOKED TABLE-->
+
+    <div class="container mt-3">
+        <table class="table  table-striped border border-dark border-2 rounded-top ">
+            <thead>
+                <tr>
+                    <th scope="col">Venue Name </th>
+                    <th scope="col">Customer Name </th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Email-id</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Booking Starting Date</th>
+                    <th scope="col">Booking Ending Date</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in booked_list %}
+                <form action="#" method="POST" id="{{a.id}}">
+                    <tr>
+
+                        <td name="vname" value="{{a.vname}}">{{a.vname}}</td>
+                        <td name="name" value="{{a.cus_name}}">{{a.cus_name}}</td>
+                        <td name="phn" value="{{a.phn_no}}">{{a.phn_no}}</td>
+                        <td name="em" value="{{a.eid}}">{{a.eid}}</td>
+                        <td name="type" value="{{a.type}}">{{a.type}}</td>
+                        <td name="addr" value="{{a.address}}">{{a.address}}</td>
+                        <td name="dte1" value="{{a.datestart}}">{{a.datestart}}</td>
+                        <td name="dte" value="{{a.dateend}}">{{a.dateend}}</td>
+                    </tr>
+                </form>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <!--Upbutton-->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <!--About Us -->
+    <div id="about-us">
+        <h1 class="about">About Us</h1>
+        <p>BOOKABLE is an online venue booking portal with the widest range of venues available . At Bookable, we
+            connect
+            our customers with the best venues in their city based on their unique requirements so that they can get the
+            ideal
+            deal for their event. We believe that online venue booking is just as personal as offline venue booking,
+            except
+            much simpler and our goal is to provide hassle-free online venue booking experience to our customers, all
+            the way
+            from browsing and shortlisting venues to booking the final one.
+
+        </p>
+
+        <p>Our approach is based on 3 principles:</p>
+
+        <p>
+        <ul type="diamond" class="list">
+            <li>Clutter-free presentation of venues on our portal</li>
+            <li>Easier selection process with all accurate and updated venue details and descriptions available</li>
+            <li>Faster and on time bookings</li>
+        </ul>
+        </p>
+
+    </div>
+
+    <!--Footer-->
+    <!--COPYRIGHT-->
+    <div class="footer text-center  bg-dark">
+        <div class="row ">
+            <section class="link">
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                        class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                        class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                        class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                        class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                        class="fab fa-linkedin"></i></a>
+
+            </section>
+
+        </div>
+        <hr>
+        <div class="footer bg-dark">
+            <div class="row">
+                <div class="col text-center text-white  ">
+                    <p>© 2020 Copyright: <a href="#">BOOKABLE</a></p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--List Your Business-->
+    <div class="form-popup " id="myForm">
+        <form action="list.html" class="form-container">
+            <form>
+                <div class="form-check">
+                    <div class="form-group ">
+                        <h3 class="fw-bold mb-2  text-white">Which service are you interested in?</h3>
+                        <br>
+
+                        <div class="radio-option">
+                            <div>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">List your venues
+                                </label>
+                            </div>
+                            <br>
+                            <br>
+
+                            <div>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" disabled>
+                                <label class="form-check-label" for="flexRadioDefault2"> List as Vendors
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+
+                        <div class=" container submit-cancel">
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <button type="submit" class="btn btn-success text-center">Submit</button>
+                                </div>
+                                <div class="col-lg-4">
+                                    <button type="button" class="btn btn-danger btn text-center"
+                                        onclick="closeForm()">Cancel</button>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+            </form>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

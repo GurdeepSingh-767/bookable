@@ -1,0 +1,43 @@
+.container {
+    margin-top: 1%;
+    margin-left: 35%;
+    max-width: 600px;
+    max-height: 48%;
+    background-color: rgba(38, 37, 39, 0.062);
+    padding: 30px;
+    border: 1px solid;
+    border-radius: 50px;
+}
+
+.div1 {
+    background-color: rgb(224, 230, 230);
+    max-width: 550px;
+}
+
+.div2 {
+    background-color: rgb(224, 230, 230);
+    max-width: 550px;
+}
+
+#hr1 {
+    color: black;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 3px;
+}
+
+.col-sm-12 {
+    padding: 10px;
+}
+
+
+.subtn {
+    margin-top: 20px;
+    margin-left: 230px;
+}
+
+.fa {
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 10px;
+}

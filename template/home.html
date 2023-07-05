@@ -1,0 +1,2109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    {% csrf_token %}
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!--Flatpicker-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+
+    <!--Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://www.paypal.com/sdk/js?client-id=Ab_w6JzxEPGM21dmCJQ1tvbzXS4bTina81KI-AjCIbDwB4fuHQpqqiAXwa7kaaUIgavQ7rRVERbTM8Gb&currency=USD"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+
+
+        /* Navbar*/
+        header {
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        .contact_btn {
+            background-color: red;
+            text-decoration: none;
+            color: #fff;
+            padding: 6px 20px;
+            margin-right: 10px;
+        }
+
+        .right_nav i {
+
+            color: #fff;
+            margin-left: 15px;
+            margin-right: 20px;
+            padding-top: 10px;
+
+            padding-bottom: 10px;
+        }
+
+        /*List Your Business*/
+        .form-popup {
+            background-color: #000608;
+            display: none;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgb(0, 0, 0);
+            padding: 50px;
+            border-radius: 25px;
+            opacity: 85%;
+
+        }
+
+        .radio-option {
+            color: white;
+            font-size: larger;
+
+        }
+
+
+        .submit-cance {
+
+            align-content: center;
+        }
+
+
+
+
+
+        .list-business {
+            margin-right: 27px;
+        }
+
+
+        .navbar-nav .nav-item {
+
+            margin-right: 50px;
+        }
+
+        #book {
+            color: #ec5600;
+        }
+
+
+
+
+
+
+
+        /* Search */
+        .search-btn {
+            display: flex;
+
+        }
+
+        .col-sm-3 {
+            align-items: center;
+
+        }
+
+        .search-btn-1 {
+            margin-left: 15%;
+            margin-right: 17px;
+        }
+
+        .search-btn-2 {
+
+            margin-right: 17px;
+        }
+
+        .search-btn-3 {
+
+            margin-right: 17px;
+        }
+
+
+
+
+        /* Carousel */
+
+        .carousel-inner h5 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 107px;
+            color: rgb(255, 255, 255);
+
+        }
+
+
+
+
+        /*Crads*/
+
+        .accordion-item {
+            overflow-y: scroll;
+            max-height: 150px;
+        }
+
+        .Book {
+            margin-left: 90%;
+        }
+
+
+
+        /*  Work */
+        .box-1 {
+            grid-area: b1;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .box-2 {
+            grid-area: b2;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .box-3 {
+            grid-area: b3;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .box-4 {
+            grid-area: b4;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .box-5 {
+            grid-area: b5;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .info {
+            display: grid;
+            grid-template-rows: 300px;
+            grid-template-areas: "b5 b1 b2 b3 b4";
+            gap: 5px;
+            margin-top: 10px;
+            margin-left: 40px;
+            margin-right: 50px;
+            text-align: center;
+        }
+
+        .info img {
+            height: 80px;
+            width: 80px;
+            border: 1px solid black;
+            border-radius: 40px;
+            padding: 8px;
+            background-color: rgb(220, 240, 240);
+        }
+
+        .info h3 {
+            font-family: sans-serif;
+            font-size: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        /* City*/
+        .boxs-1 {
+            grid-area: b1;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-2 {
+            grid-area: b2;
+            background-color: white;
+            padding-left: 50px;
+            padding-top: 20px;
+        }
+
+        .boxs-3 {
+            grid-area: b3;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-4 {
+            grid-area: b4;
+            background-color: white;
+            padding-right: 45px;
+            padding-top: 20px;
+        }
+
+        .boxs-5 {
+            grid-area: b5;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-6 {
+            grid-area: b6;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-7 {
+            grid-area: b7;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-8 {
+            grid-area: b8;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-9 {
+            grid-area: b9;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-10 {
+            grid-area: b10;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .boxs-11 {
+            grid-area: b11;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .infos {
+            display: grid;
+            grid-template-rows: 250px;
+            grid-template-areas: "b8 b9 b10 b1 b2 b3 b4 b5 b6 b7 b11";
+            gap: 5px;
+            margin-top: 10px;
+            margin-left: 40px;
+            margin-right: 50px;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .infos img {
+            height: 80px;
+            width: 80px;
+            border: 1px solid black;
+            border-radius: 40px;
+            padding: 8px;
+            background-color: rgb(220, 240, 240);
+        }
+
+        .infos h3 {
+            font-family: sans-serif;
+            font-size: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        /*hr*/
+        #hr1 {
+            color: black;
+            width: 70%;
+            margin-top: 80px;
+            padding-top: 2px;
+            margin-left: 270px;
+        }
+
+        /*hr*/
+        #hr2 {
+            color: black;
+            width: 70%;
+            margin-top: 30px;
+            padding-top: 2px;
+            margin-left: 270px;
+        }
+
+        /*  Why */
+        .bx-1 {
+            grid-area: b1;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .b-2 {
+            grid-area: b2;
+            background-color: white;
+            padding-top: 20px;
+            padding-left: 40px;
+        }
+
+        .b-3 {
+            grid-area: b3;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .b-4 {
+            grid-area: b4;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .b-5 {
+            grid-area: b5;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .why {
+            display: grid;
+            grid-template-rows: 300px;
+            grid-template-areas: "b5 b1 b2 b3 b4";
+            gap: 5px;
+            margin-top: 10px;
+            margin-left: 40px;
+            margin-right: 50px;
+            text-align: center;
+        }
+
+        .why img {
+            height: 80px;
+            width: 80px;
+            border: 1px solid black;
+            border-radius: 40px;
+            padding: 8px;
+            background-color: rgb(220, 240, 240);
+        }
+
+        .why h3 {
+            font-family: sans-serif;
+            font-size: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        /*hr*/
+        #hr3 {
+            color: black;
+            width: 70%;
+            margin-top: 30px;
+            padding-top: 2px;
+            margin-left: 270px;
+        }
+
+        /*Reviews*/
+        .card-img-top {
+            height: 20px;
+            width: 20px;
+            margin: 10px;
+        }
+
+        .cards-wrapper {
+            display: flex;
+        }
+
+        .card-1 {
+            margin: 0 1em;
+            width: calc(100%/3);
+        }
+
+        #carouselExampleControls h3 {
+            font-family: sans-serif;
+            font-size: 30px;
+            padding-bottom: 20px;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+
+        /*hr*/
+        #hr4 {
+            color: black;
+            width: 70%;
+            margin-top: 30px;
+            padding-top: 2px;
+            margin-left: 270px;
+        }
+
+        .cards-img-top {
+            height: 20px;
+            width: 20px;
+            margin-left: 420px;
+        }
+
+
+
+
+        /* Footer */
+        .footer {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+
+
+
+
+
+
+        /* About Us */
+
+
+        #about-us {
+            background-color: #21211f;
+            color: white;
+
+            padding: 20px;
+
+        }
+
+        .about {
+
+            text-align: center;
+        }
+
+        .list {
+
+            list-style-position: inside;
+        }
+
+
+        /*Up-Button*/
+        .gotopbtn {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: #27ae60;
+            bottom: 40px;
+            right: 50px;
+
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            color: rgb(0, 0, 0);
+            font-size: 22px;
+            border-radius: 3rem;
+        }
+
+
+
+
+
+
+
+        /* Navbar*/
+        header {
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        .contact_btn {
+            background-color: red;
+            text-decoration: none;
+            color: #fff;
+            padding: 6px 20px;
+            margin-right: 10px;
+        }
+
+        .right_nav i {
+
+            color: #fff;
+            margin-left: 15px;
+            margin-right: 20px;
+            padding-top: 10px;
+
+            padding-bottom: 10px;
+        }
+
+        /*List Your Business*/
+        .form-popup {
+            background-color: #000608;
+            display: none;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgb(0, 0, 0);
+            padding: 50px;
+            border-radius: 25px;
+            opacity: 85%;
+
+        }
+
+        .radio-option {
+            color: white;
+            font-size: larger;
+
+        }
+
+
+        .submit-cance {
+
+            align-content: center;
+        }
+
+
+
+
+
+        .list-business {
+            margin-right: 27px;
+        }
+
+
+        .navbar-nav .nav-item {
+
+            margin-right: 50px;
+        }
+
+        /* PopUp */
+
+
+
+
+
+
+        .golu {
+            padding: 10px;
+        }
+
+
+        #bookSumbit {
+            margin-left: 50%;
+        }
+
+
+        /* PhotoS */
+        #PhotoS {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 72px;
+        }
+    </style>
+
+
+
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!--Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_package_v0.16/apple-touch-icon.png' %}">
+    <link rel="icon" type="{% static 'png' %}" sizes="32x32"
+        href="{% static 'favicon_package_v0.16/favicon-32x32.png' %}">
+    <link rel="icon" type="{% static 'png' %}" sizes="16x16"
+        href="{% static 'favicon_package_v0.16/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_package_v0.16//site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'favicon_package_v0.16//safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <title>BOOKABLE</title>
+
+    <title>Home page</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark  fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'Teal Modern Company Logo (2).png' %}" alt="" width="30" height="24"
+                            class="d-inline-block align-text-top">
+                        <span id="book"> BOOK</span>ABLE
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class=" navbar-nav mx-auto mb-6 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active " href="#about-us">About Us</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#Venues">Venues</a>
+
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link active" href="#">Vendors</a>
+
+                            </li>-->
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#PhotoS">Photos</a>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-dark" id="liveToastBtn">Queries</button>
+                                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive"
+                                        aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="{% static 'Teal Modern Company Logo (2).png' %}"
+                                                class="rounded me-2" alt="Bookable.com" width="30" height="24">
+                                            <strong class="me-auto">BOOKABLE</strong>
+                                            <small>Ask Queries</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <form action="query" method="POST">
+                                            <div class="toast-body">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label"> Enter Your
+                                                        Email-id</label>
+                                                    <input type="email" name="eme" class="form-control"
+                                                        id="exampleFormControlInput1" placeholder="name@example.com">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Describe
+                                                        Your Query</label>
+                                                    <textarea class="form-control" name="txt"
+                                                        id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                </div>
+                                                <div><input class="btn btn-success  " type="submit" value="Submit">
+                                                </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                    </div>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            Services
+                        </button>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Contact Us</a>
+                    </li>
+                    </ul>
+                    <!--<button type="button" class=" list-business btn btn-outline-warning" onclick="openForm()">List
+                            your business</button>-->
+
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-secondary btn-danger dropdown-toggle rounded-pill" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                class="fa-solid fa-user"></i>
+
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Account Setting</a></li>
+                            <li><a class="dropdown-item" href="#">Get Help</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item active" href="/">Logout</a></li>
+                        </ul>
+                    </div>
+                    <!--<button type="button" class="btn btn-danger  rounded-pill" onclick="open_Form()"><i
+                                class="fa-solid fa-user"></i></button>-->
+
+                    <script>
+                        var toastTrigger = document.getElementById('liveToastBtn')
+                        var toastLiveExample = document.getElementById('liveToast')
+                        if (toastTrigger) {
+                            toastTrigger.addEventListener('click', function () {
+                                var toast = new bootstrap.Toast(toastLiveExample)
+
+                                toast.show()
+                            })
+                        }
+                    </script>
+
+
+                </div>
+        </div>
+        </nav>
+        </div>
+
+        <!--Services-->
+        <div class="modal fade modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static"
+            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel"> <img
+                                src="{% static 'Teal Modern Company Logo (2).png' %}" alt="" width="30" height="24"
+                                class="d-inline-block px-1">Bookable</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>First register or login to the website.
+
+                            <h3>For booking the venue:</h3>
+                            <ul type="" cricle>
+                                <li> Select your city and occasion type .</li>
+                                <li> Select the desired venue from the list displayed.</li>
+                                <li> Read the venue details and book the venue.</li>
+                                <li> Fill the Booking form and enter valid information.</li>
+                                <li> Confirmation mail will be send to your given mail id.</li>
+
+                                <h3> For enlisting your venue:</h3>
+                                <li> 1. Click on List your business.</li>
+                                <li> 2. List your venue</li>
+                                <li> 3.Fill the venue enlisting form</li>
+                                <li> 4. Add venue information and add contact details. </li>
+                                <li> 5. Click on Submit.Your venue will be enlisted.</li>
+                            </ul>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-primary text-center "
+                            data-bs-dismiss="modal">Understood</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!--Upbutton-->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+
+    <!-- Carousel-->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'CAR1 (1).webp' %}" class="d-block w-100" alt="marriage.png">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Find Your Perfect Event Venue</h5>
+
+                </div>
+            </div>
+            <!--    <div class="carousel-item">
+                <img src="{% static 'Main.jpg' %}" class="d-block w-100" alt="party.png">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Find Your Perfect Event Venue</h5>
+
+                </div>
+            </div>-->
+            <div class="carousel-item">
+                <img src="{% static 'Party.jpg' %}" class="d-block w-100" alt="Party.pic">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Find Your Perfect Event Venue</h5>
+
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+    <!--Search--><br>
+    <br>
+
+    <form action="search" method="POST">
+        <div class="search-btn" id="search-btn">
+            <div class="search-btn-1 col-sm-3 ">
+                <select class="form-select" aria-label="Default select example" name="place">
+                    <option selected Hidden>Select City</option>
+                    <option value="Dewas">Dewas</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Ujjain">Ujjain</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Gwalior">Gwalior</option>
+
+                </select>
+            </div>
+            <div class="search-btn-2 col-sm-3">
+
+                <select class="form-select" aria-label="Default select example" name="type">
+                    <option selected Hidden>Select Type of Venue</option>
+                    <option value="hall">Hall</option>
+                    <option value="garden">Garden</option>
+                    <option value="pool">Pool Party</option>
+                    <option value="community_hall">Community Hall</option>
+
+
+                </select>
+            </div>
+
+
+
+
+            <div class=" search-btn-3 col-sm-3">
+                <select class="form-select" aria-label="Default select example" name="cap">
+                    <option selected Hidden>Capcity</option>
+                    <option value="1">below 1000</option>
+                    <option value="2">1000-2000</option>
+                    <option value="3">2000-3000 </option>
+                    <option value="4">3000-4000</option>
+                    <option value="5">4000-5000</option>
+                    <option value="6">Above 5000</option>
+                </select>
+
+            </div>
+            <div class=" search-btn-3 col-sm-3">
+                <button type="submit" class="btn btn-primary  rounded-pill"><i
+                        class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+        </div>
+
+    </form>
+
+
+    <!-- Cards -->
+
+    {% for x in hall_list %}
+    {% load static %}
+    <form method="POST">
+        <div class="container mt-5" id="Venues">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{x.img}}" class="w-100 h-100" alt="{{x.hall_name}}">
+
+                    </div>
+
+                    <input type="hidden" id="vname" value="{{x.hall_name}}">
+                    <input type="hidden" name="vt" value="hall">
+                    <div class="col-md-8">
+                        <h2 class="card-title mt-2" id="abc">{{x.hall_name}}</h2>
+                        <h6 class="mt-0"><i class="fa-solid fa-location-dot"></i> {{x.locality}},{{x.city}}</h6>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        About Us
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>{{x.description}}</strong>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="container px-4">
+                                            <div class="row gx-5">
+                                                <div class="col">
+                                                    <div class="p-1 font-weight-bold  ">Property Type </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-1 "><i class="fa-solid fa-hotel"></i> Hall</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container px-4">
+                                            <div class="row gx-5">
+                                                <div class="col">
+                                                    <div class="p-1 font-weight-bold ">Guest Capcity </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-1 "><i class="fa-solid fa-people-line"></i>
+                                                        {{x.capacity}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container px-4">
+                                            <div class="row gx-5">
+                                                <div class="col">
+                                                    <div class="p-1 font-weight-bold ">Cost</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-1 "><i
+                                                            class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                                                        {{x.cost}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container px-4">
+                                            <div class="row gx-5">
+                                                <div class="col">
+                                                    <div class="p-1 font-weight-bold ">Contact Number </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-1 "><i class="fa-solid fa-phone"></i>{{x.contact_no}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                            <button type="button" id="h" value="{{x.hall_name}}" class="btn btn-success  Book rounded"
+                                data-bs-toggle="modal" data-bs-target="#hall" onclick="select(this.value)">
+                                Book</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        function select(vale) {
+            document.getElementById('nameTarget').innerText = vale;
+            document.getElementById('nameTargeti').value = vale;
+
+        }
+    </script>
+
+    {% endfor %}
+
+
+    {% for y in garden_list %}
+    {% load static %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{y.img}}" class="w-100 h-100" alt="{{y.garden_name}}">
+
+                </div>
+                <input type="hidden" name="vname" value="{{y.garden_list}}">
+                <input type="hidden" name="vt" value="garden">
+                <div class="col-md-8">
+                    <h2 class="card-title mt-2">{{y.garden_name}}</h2>
+                    <h6 class="mt-0"><i class="fa-solid fa-location-dot"></i> {{y.locality}},{{y.city}}</h6>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    About Us
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>{{y.description}}</strong>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold  ">Property Type </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-hotel"></i> Garden</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Guest Capcity </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-people-line"></i> {{y.capacity}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Cost</div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                                                    {{y.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Contact Number </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-phone"></i>{{y.contact_no}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <button name="h" value="{{y.garden_name}}" class="btn btn-success  Book rounded"
+                            data-bs-toggle="modal" data-bs-target="#garden" onclick="select1(this.value)">
+                            Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function select1(vale) {
+            document.getElementById('nameTarget1').innerHTML = vale;
+            document.getElementById('nameTargetj').value = vale;
+        }
+    </script>
+    {% endfor %}
+
+
+    {% for z in pool_list %}
+    {% load static %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{z.img}}" class="w-100 h-100" alt="{{z.pool_name}}">
+
+                </div>
+                <input type="hidden" name="vname" value="{{z.pool_list}}">
+                <input type="hidden" name="vt" value="pool">
+                <div class="col-md-8">
+                    <h2 class="card-title mt-2">{{z.pool_name}}</h2>
+                    <h6 class="mt-0"><i class="fa-solid fa-location-dot"></i> {{z.locality}},{{z.city}}</h6>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    About Us
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>{{z.description}}</strong>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold  ">Property Type </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-hotel"></i> Pool</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Guest Capcity </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-people-line"></i> {{z.capacity}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Cost</div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                                                    {{z.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Contact Number </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-phone"></i>{{z.contact_no}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <button type="button" name="h" value="{{z.pool_name}}" class="btn btn-success  Book rounded"
+                            data-bs-toggle="modal" data-bs-target="#pool" onclick="select2(this.value)">
+                            Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function select2(vale) {
+            document.getElementById('nameTarget2').innerHTML = vale;
+            document.getElementById('nameTargetk').value = vale;
+        }
+
+    </script>
+    {% endfor %}
+
+
+    {% for a in community_hall_list %}
+    {% load static %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{a.img}}" class="w-100 h-100" alt="{{a.community_hall_name}}">
+
+                </div>
+                <input type="hidden" name="vname" value="{{a.community_hall_list}}">
+                <input type="hidden" name="vt" value="community_hall">
+                <div class="col-md-8">
+                    <h2 class="card-title mt-2">{{a.community_hall_name}}</h2>
+                    <h6 class="mt-0"><i class="fa-solid fa-location-dot"></i> {{a.locality}},{{a.city}}</h6>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    About Us
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>{{a.description}}</strong>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold  ">Property Type </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-hotel"></i> Communtiy Hall</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Guest Capcity </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-people-line"></i> {{a.capacity}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Cost</div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                                                    {{a.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col">
+                                                <div class="p-1 font-weight-bold ">Contact Number </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="p-1 "><i class="fa-solid fa-phone"></i>{{a.contact_no}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <button type="button" name="h" value="{{a.community_hall_name}}"
+                            class="btn btn-success  Book rounded" data-bs-toggle="modal" data-bs-target="#comm"
+                            onclick="select3(this.value)">
+                            Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function select3(vale) {
+            document.getElementById('nameTarget3').innerHTML = vale;
+            document.getElementById('nameTargetl').value = vale;
+        }
+    </script>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Upbutton-->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+
+
+
+
+    <!--Photos-->
+    <hr id="hr4">
+
+    <div class="contanier  pd-3">
+        <h4 class="display-5 text-center mb-4 " id="PhotoS">
+            <strong>
+                Photos
+            </strong>
+            </h5>
+
+            <div class="row border border-dark rounded m-4 p-4">
+                <div class="col-sm12 col-md-6 col-lg-4">
+                    <img class="img-fluid shadow  img-thumbnail rounded mb-4" src="{% static 'ag1.jpg' %}" alt="">
+                </div>
+                <div class="col-sm12 col-md-6 col-lg-4">
+                    <img class="img-fluid shadow  img-thumbnail rounded mb-4" src="{% static 'ag2.jpg' %}" alt="">
+                </div>
+                <div class="col-sm12 col-md-6 col-lg-4">
+                    <img class="img-fluid shadow  img-thumbnail rounded mb-4" src="{% static 'ag3.jpg' %}" alt="">
+                </div>
+                <div class="col-sm12 col-md-6 col-lg-4">
+                    <img class="img-fluid shadow  img-thumbnail rounded mb-4" src="{% static 'ag4.jpg' %}" alt="">
+                </div>
+                <div class="col-sm12 col-md-6 col-lg-4">
+                    <img class="img-fluid shadow   img-thumbnailrounded mb-4" src="{% static 'ag5.jpg' %}" alt="">
+                </div>
+                <div class="col-sm12 col-md-6 col-lg-4">
+                    <img class="img-fluid shadow  img-thumbnail rounded mb-4" src="{% static 'ag6.jpg' %}" alt="">
+                </div>
+            </div>
+            <!--</div>  -->
+
+
+
+
+
+
+
+
+
+            <!--Reviews-->
+            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel" id="reviews">
+
+                <h3><b>A Word From Our Customers</b></h3>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="cards-wrapper">
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">Amazing service and support by the team. Very friendly, knows
+                                        what
+                                        you are looking
+                                        for, fetches amazing vanues at lowest prices. Keep up the good work.</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><br><b>Kuldeep Singh</b><br>Booked a Social Function
+                                        Venue</p>
+
+                                </div>
+                            </div>
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">I really appreciate from the bottom of my heart the service
+                                        you
+                                        provide. It was
+                                        really very hard to find a perfect venue for a big corporate party at Indore but
+                                        Bookable made it too
+                                        easy.</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><br><b>Jiya Solanki</b><br>Booked a Corporate Party
+                                        Venue</p>
+
+                                </div>
+                            </div>
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">The team was very swift in getting the deals for all the
+                                        hotels we
+                                        had requested
+                                        them. The final quotes from the hotels were definitely way less than the market
+                                        price.
+                                        Hence, Bookable
+                                        does get you value for money. Keep up the good work.</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><b>Hardeep Singh</b><br>Booked a Corporate Party Venue
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="cards-wrapper">
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">Thank you so much! You did an amazing job on such short
+                                        notice.
+                                        Bookable did a
+                                        major help and I'll definitely refer you. Good luck for the future!</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><br><b>Shailaja Kocharekar</b><br>Booked a Birthday
+                                        Party Venue
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">Thank you Bookable. It's not easy to find a good venue
+                                        specially when
+                                        it is you
+                                        D-Day (Wedding). Thank you Bookable. You made my day memorable. Highly
+                                        appreciated.</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><br><b>Mustkeem Hussain</b><br>Booked a Wedding Venue
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">Very quick response to my query for searching the venue.
+                                        Thanks
+                                        Bookable for quick
+                                        response and making things very clear before I could finalize everything.</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><br><b>Ishika Bhatia</b><br>Booked a Team Party Venue
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="cards-wrapper">
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">Bookable has been of great help in searching a location for
+                                        my very
+                                        special day
+                                        (Wedding). Special thanks to keep accommodating with our change requests. Kudos
+                                        to the
+                                        team!</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><b>Gurdeep Singh</b><br>Booked a Wedding Venue</p>
+
+                                </div>
+                            </div>
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">This website is really good. It helped me book a venue for my
+                                        birthday and the
+                                        package that I got was in my budget, thank you so much guys.</h6>
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><br><b>Ashi Solanki</b><br>Booked a Birthday Party
+                                        Venue</p>
+
+                                </div>
+                            </div>
+                            <div class="card card-1">
+                                <img src="{% static 'commas.png' %}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h6 class="card-title">The team was very cooperative and understanding. Special
+                                        thanks to
+                                        Bookable for
+                                        planning such an amazing event.</h6>
+
+                                    <img src="{% static 'commaclose.png' %}" class="cards-img-top" alt="...">
+                                    <p class="card-text"><br><br><br><b>Jitika Joshi</b><br>Booked a Social Function
+                                        Venue</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr id="hr4">
+
+            <!--About Us -->
+            <div id="about-us">
+                <h1 class="about">About Us</h1>
+                <p>BOOKABLE is an online venue booking portal with the widest range of venues available . At Bookable,
+                    we
+                    connect
+                    our customers with the best venues in their city based on their unique requirements so that they can
+                    get the
+                    ideal
+                    deal for their event. We believe that online venue booking is just as personal as offline venue
+                    booking,
+                    except
+                    much simpler and our goal is to provide hassle-free online venue booking experience to our
+                    customers, all
+                    the way
+                    from browsing and shortlisting venues to booking the final one.
+
+                </p>
+
+                <p>Our approach is based on 3 principles:</p>
+
+                <p>
+                <ul type="diamond" class="list">
+                    <li>Clutter-free presentation of venues on our portal</li>
+                    <li>Easier selection process with all accurate and updated venue details and descriptions available
+                    </li>
+                    <li>Faster and on time bookings</li>
+                </ul>
+                </p>
+
+            </div>
+
+            <!--Footer-->
+            <!--COPYRIGHT-->
+            <div class="footer text-center  bg-dark">
+                <div class="row ">
+                    <section class="link">
+                        <!-- Facebook -->
+                        <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                                class="fab fa-facebook-f"></i></a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                                class="fab fa-twitter"></i></a>
+
+                        <!-- Google -->
+                        <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                                class="fab fa-google"></i></a>
+
+                        <!-- Instagram -->
+                        <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                                class="fab fa-instagram"></i></a>
+
+                        <!-- Linkedin -->
+                        <a class="btn btn-link btn-floating btn-lg text-light m-1" href="#!" role="button"><i
+                                class="fab fa-linkedin"></i></a>
+
+                    </section>
+
+                </div>
+                <hr>
+                <div class="footer bg-dark">
+                    <div class="row">
+                        <div class="col text-center text-white  ">
+                            <p>© 2020 Copyright: <a href="#">BOOKABLE</a></p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+
+
+
+                function openForm() {
+                    document.getElementById("myForm").style.display = "block";
+                    var a = getElementById("abc")
+                    return a
+
+                }
+
+                function closeForm() {
+                    document.getElementById("myForm").style.display = "none";
+                }
+
+
+
+            </script>
+
+
+            <!-- Modal Booking -->
+
+            <div id="hall" class="modal  rounded  ">
+
+                <div class="modal-dialog modal-lg ">
+                    <div class="modal-content bg-light border ">
+                        <div class="modal-header">
+                            <h3><i class="fa-solid fa-file"></i> <strong class="text-dark">Booking Information</strong>
+                            </h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+
+
+                            <form action="signup/book" method="POST">
+                                {% csrf_token %}
+
+                                <div class=" col-sm-12 golu  ">
+                                    <p id="nameTarget" name="vn"></p>
+                                    <input type="hidden" id="nameTargeti" name="vn">
+                                </div>
+
+                                <div class=" col-sm-12 golu">
+                                    <p name="typ" value="Hall">Hall</p>
+                                    <input type="hidden" name="typ" value="Hall">
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="dates" type="datetime" placeholder="From">
+                                    </div>
+
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="datef" type="datetime" placeholder="Till">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="1"
+                                        placeholder="Enter requirements "></textarea>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="custn"
+                                        aria-describedby="emailHelp" placeholder="Entry Full Name " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="phn"
+                                        aria-describedby="emailHelp" placeholder="Phone Number " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                                        aria-describedby="emailHelp" placeholder="Enter  Email-id" required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="3"
+                                        placeholder="Enter Full Address"></textarea>
+                                </div>
+
+                                
+                                <!-- Set up a container element for the button -->
+                                <div id="paypal-button-container"></div>
+                                <script>
+                                    // Render the PayPal button into #paypal-button-container
+                                    paypal.Buttons({
+                            
+                                        // Call your server to set up the transaction
+                                        createOrder: function(data, actions) {
+                                            return fetch('/demo/checkout/api/paypal/order/create/', {
+                                                method: 'post'
+                                            }).then(function(res) {
+                                                return res.json();
+                                            }).then(function(orderData) {
+                                                return orderData.id;
+                                            });
+                                        },
+                            
+                                        // Call your server to finalize the transaction
+                                        onApprove: function(data, actions) {
+                                            return fetch('/demo/checkout/api/paypal/order/' + data.orderID + '/capture/', {
+                                                method: 'post'
+                                            }).then(function(res) {
+                                                return res.json();
+                                            }).then(function(orderData) {
+                                                // Three cases to handle:
+                                                //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+                                                //   (2) Other non-recoverable errors -> Show a failure message
+                                                //   (3) Successful transaction -> Show confirmation or thank you
+                            
+                                                // This example reads a v2/checkout/orders capture response, propagated from the server
+                                                // You could use a different API or structure for your 'orderData'
+                                                var errorDetail = Array.isArray(orderData.details) && orderData.details[0];
+                            
+                                                if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
+                                                    return actions.restart(); // Recoverable state, per:
+                                                    // https://developer.paypal.com/docs/checkout/integration-features/funding-failure/
+                                                }
+                            
+                                                if (errorDetail) {
+                                                    var msg = 'Sorry, your transaction could not be processed.';
+                                                    if (errorDetail.description) msg += '\n\n' + errorDetail.description;
+                                                    if (orderData.debug_id) msg += ' (' + orderData.debug_id + ')';
+                                                    return alert(msg); // Show a failure message (try to avoid alerts in production environments)
+                                                }
+                            
+                                                // Successful capture! For demo purposes:
+                                                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                                                var transaction = orderData.purchase_units[0].payments.captures[0];
+                                                alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                            
+                                                // Replace the above to show a success message within this page, e.g.
+                                                // const element = document.getElementById('paypal-button-container');
+                                                // element.innerHTML = '';
+                                                // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                                                // Or go to another URL:  actions.redirect('thank_you.html');
+                                            });
+                                        }
+                            
+                                    }).render('#paypal-button-container');
+                                </script>
+
+
+
+
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn book-btn btn-outline-success "
+                                        id="bookSumbit">Submit</button>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- <script>
+    document.getElementById( 'nameTarget' ).innerHTML = document.getElementById( 'h' ).value;
+</script> -->
+
+
+
+            <div id="garden" class="modal  rounded  ">
+                <div class="modal-dialog modal-lg ">
+                    <div class="modal-content bg-light border ">
+                        <div class="modal-header">
+                            <h3><i class="fa-solid fa-file"></i> <strong class="text-dark">Booking Information</strong>
+                            </h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+
+
+                            <form action="signup/book" method="POST" class="needs-validation" novalidate>
+                                {% csrf_token %}
+
+                                <div class=" col-sm-12 golu  ">
+                                    <p id="nameTarget1" name="vn"></p>
+                                    <input type="hidden" id="nameTargetj" name="vn">
+                                </div>
+
+                                <div class=" col-sm-12 golu">
+                                    <p name="typ" value="Garden">Garden</p>
+                                    <input type="hidden" name="typ" value="Garden">
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="dates" type="datetime" placeholder="From">
+                                    </div>
+
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="datef" type="datetime" placeholder="Till">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="1"
+                                        placeholder="Enter requirements "></textarea>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="custn"
+                                        aria-describedby="emailHelp" placeholder="Entry Full Name " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="phn"
+                                        aria-describedby="emailHelp" placeholder="Phone Number " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                                        aria-describedby="emailHelp" placeholder="Enter  Email-id" required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="3"
+                                        placeholder="Enter Full Address"></textarea>
+                                </div>
+
+
+
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn book-btn btn-outline-success "
+                                        id="bookSumbit">Submit</button>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="pool" class="modal  rounded  ">
+                <div class="modal-dialog modal-lg ">
+                    <div class="modal-content bg-light border ">
+                        <div class="modal-header">
+                            <h3><i class="fa-solid fa-file"></i> <strong class="text-dark">Booking Information</strong>
+                            </h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+
+
+                            <form action="signup/book" method="POST" class="needs-validation" novalidate>
+                                {% csrf_token %}
+
+                                <div class=" col-sm-12 golu  ">
+                                    <p id="nameTarget2" name="vn"></p>
+                                    <input type="hidden" id="nameTargetk" name="vn">
+                                </div>
+
+                                <div class=" col-sm-12 golu">
+                                    <p name="typ" value="Pool">Pool</p>
+                                    <input type="hidden" name="typ" value="Pool">
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="dates" type="datetime" placeholder="From">
+                                    </div>
+
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="datef" type="datetime" placeholder="Till">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="1"
+                                        placeholder="Enter requirements "></textarea>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="custn"
+                                        aria-describedby="emailHelp" placeholder="Entry Full Name " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="phn"
+                                        aria-describedby="emailHelp" placeholder="Phone Number " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                                        aria-describedby="emailHelp" placeholder="Enter  Email-id" required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="3"
+                                        placeholder="Enter Full Address"></textarea>
+                                </div>
+
+
+
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn book-btn btn-outline-success "
+                                        id="bookSumbit">Submit</button>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="comm" class="modal  rounded  ">
+                <div class="modal-dialog modal-lg ">
+                    <div class="modal-content bg-light border ">
+                        <div class="modal-header">
+                            <h3><i class="fa-solid fa-file"></i> <strong class="text-dark">Booking Information</strong>
+                            </h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+
+
+                            <form action="signup/book" method="POST" class="needs-validation" novalidate>
+                                {% csrf_token %}
+
+                                <div class=" col-sm-12 golu  ">
+                                    <p id="nameTarget3" name="vn"></p>
+                                    <input type="hidden" id="nameTargetl" name="vn">
+                                </div>
+
+                                <div class=" col-sm-12 golu">
+                                    <p name="typ" value="Community hall">Community_Hall</p>
+                                    <input type="hidden" name="typ" value="Hall">
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="dates" type="datetime" placeholder="From">
+                                    </div>
+
+                                    <div class="col-sm-6 golu">
+                                        <input class="form-conrol" name="datef" type="datetime" placeholder="Till">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="1"
+                                        placeholder="Enter requirements "></textarea>
+                                </div>
+
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="custn"
+                                        aria-describedby="emailHelp" placeholder="Entry Full Name " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="text" class="form-control" id="vname" name="phn"
+                                        aria-describedby="emailHelp" placeholder="Phone Number " required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                                        aria-describedby="emailHelp" placeholder="Enter  Email-id" required>
+                                </div>
+                                <div class="col-sm-12 golu">
+                                    <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="3"
+                                        placeholder="Enter Full Address"></textarea>
+                                </div>
+
+
+
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn book-btn btn-outline-success "
+                                        id="bookSumbit">Submit</button>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Book-->
+            <div class="container container_1 form-popup" id="myF0orm">
+                <h4><i class="fa fa-file  fa-lg " aria-hidden="true"></i> <strong class="text-light">Booking
+                        Information</strong> </h4>
+                <div class="div1">
+                    <form action="signup/book" method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+
+                        <div class=" col-sm-12 golu ">
+                            <select class="form-select" name="venue" aria-label="Default select example">
+                                <option selected>Select Venue</option>
+                                {% for x in hall_list %}
+                                <option value="{{x.hall_name}}">{{x.hall_name}}</option>
+                                {% endfor %}
+                                {% for y in garden_list %}
+                                <option value="{{y.garden_name}}">{{y.garden_name}}</option>
+                                {% endfor %}
+                                {% for z in pool_list %}
+                                <option value="{{z.pool_name}}">{{z.pool_name}}</option>
+                                {% endfor %}
+                                {% for a in community_hall_list %}
+                                <option value="{{a.community_hall_name}}">{{a.community_hall_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class=" col-sm-12 golu">
+
+                            <select class="form-select" aria-label="Default select example" name="type">
+                                <option selected Hidden>Select Type of Venue</option>
+                                <option value="hall">Hall</option>
+                                <option value="garden">Garden</option>
+                                <option value="pool">Pool Party</option>
+                                <option value="community_hall">Community Hall</option>
+
+
+                            </select>
+                        </div>
+
+                        <div class="col-sm-12 golu">
+                            <input type="text" class="form-control" id="vname" name="custn" aria-describedby="emailHelp"
+                                placeholder="Entry Full Name " required>
+                        </div>
+                        <div class="col-sm-12 golu">
+                            <input type="text" class="form-control" id="vname" name="phn" aria-describedby="emailHelp"
+                                placeholder="Phone Number " required>
+                        </div>
+                        <div class="col-sm-12 golu">
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                                aria-describedby="emailHelp" placeholder="Enter  Email-id" required>
+                        </div>
+                        <div class="col-sm-12 golu">
+                            <textarea class="form-control" name="addr" id="exampleFormControlTextarea1" rows="3"
+                                placeholder="Enter Full Address"></textarea>
+                        </div>
+                        <div class="col-sm-12 golu">
+                            <label for="exampleFormControlInput1" class="form-label"><strong class="text-light">Select
+                                    date and time</strong> </label>
+                            <input type="date" id="Test_DatetimeLocal" name="date" placeholder="Select date and time ">
+                        </div>
+
+                        <hr id="hr17">
+
+
+                        <button type="submit" class="btn book-btn btn-outline-success">Submit</button>
+                    </form>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- Optional JavaScript; choose one of the two! -->
+
+                <!-- Option 1: Bootstrap Bundle with Popper -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                    crossorigin="anonymous"></script>
+
+                <!-- Option 2: Separate Popper and Bootstrap JS -->
+                <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+                <!--Flatpicker Script-->
+                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                <script>
+
+                    config = {
+                        //enableTime: true,
+                        //dateFormat: "Y-m-d H:i",
+
+                        minDate: "today",
+                        maxDate: new Date().fp_incr(14) // 14 days from now
+
+
+
+                    }
+
+                    flatpickr("input[type=datetime]", config);
+
+
+                </script>
+
+</body>
+
+</html>

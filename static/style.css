@@ -1,0 +1,409 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+
+
+ /* Navbar */
+ header {
+     background-color: #f5f5f5;
+     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+     padding-top: 10px;
+     padding-bottom: 10px;
+     margin-right: 10px;
+ }
+
+ .contact_btn {
+     background-color: red;
+     text-decoration: none;
+     color: #fff;
+     padding: 6px 20px;
+     margin-right: 10px;
+ }
+
+ .right_nav i {
+
+     color: #fff;
+     margin-left: 15px;
+     margin-right: 20px;
+     padding-top: 10px;
+
+     padding-bottom: 10px;
+ }
+
+ .form-popup {
+     background-color: #000608;
+     text-align: center;
+     display: none;
+     position: fixed;
+
+
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     border: 2px solid rgb(0, 0, 0);
+     padding: 50px;
+     border-radius: 25px;
+     opacity: 85%;
+
+ }
+
+ .navbar-nav .nav-item {
+
+     margin-right: 30px;
+ }
+
+ #book1 {
+     color: #ec5600;
+ }
+
+
+
+ /* Carousel */
+
+ .carousel-inner h5 {
+     font-family: Helvetica, Arial, sans-serif;
+     font-size: 72px;
+     color: black;
+
+ }
+
+
+
+ /*  Work */
+ .box-1 {
+     grid-area: b1;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .box-2 {
+     grid-area: b2;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .box-3 {
+     grid-area: b3;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .box-4 {
+     grid-area: b4;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .box-5 {
+     grid-area: b5;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .info {
+     display: grid;
+     grid-template-rows: 300px;
+     grid-template-areas: "b5 b1 b2 b3 b4";
+     gap: 5px;
+     margin-top: 10px;
+     margin-left: 40px;
+     margin-right: 50px;
+     text-align: center;
+ }
+
+ .info img {
+     height: 80px;
+     width: 80px;
+     border: 1px solid black;
+     border-radius: 40px;
+     padding: 8px;
+     background-color: rgb(220, 240, 240);
+ }
+
+ .info h3 {
+     font-family: sans-serif;
+     font-size: 40px;
+     padding-bottom: 20px;
+     text-align: center;
+ }
+
+ /* City*/
+ .boxs-1 {
+     grid-area: b1;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-2 {
+     grid-area: b2;
+     background-color: white;
+     padding-left: 50px;
+     padding-top: 20px;
+ }
+
+ .boxs-3 {
+     grid-area: b3;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-4 {
+     grid-area: b4;
+     background-color: white;
+     padding-right: 45px;
+     padding-top: 20px;
+ }
+
+ .boxs-5 {
+     grid-area: b5;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-6 {
+     grid-area: b6;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-7 {
+     grid-area: b7;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-8 {
+     grid-area: b8;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-9 {
+     grid-area: b9;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-10 {
+     grid-area: b10;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .boxs-11 {
+     grid-area: b11;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .infos {
+     display: grid;
+     grid-template-rows: 250px;
+     grid-template-areas: "b8 b9 b10 b1 b2 b3 b4 b5 b6 b7 b11";
+     gap: 5px;
+     margin-top: 10px;
+     margin-left: 40px;
+     margin-right: 50px;
+     text-align: center;
+     padding-top: 30px;
+ }
+
+ .infos img {
+     height: 80px;
+     width: 80px;
+     border: 1px solid black;
+     border-radius: 40px;
+     padding: 8px;
+     background-color: rgb(220, 240, 240);
+ }
+
+ .infos h3 {
+     font-family: sans-serif;
+     font-size: 40px;
+     padding-bottom: 20px;
+     text-align: center;
+ }
+
+ /*hr*/
+ #hr1 {
+     color: black;
+     width: 70%;
+     margin-top: 80px;
+     padding-top: 2px;
+     margin-left: 270px;
+ }
+
+ /*hr*/
+ #hr2 {
+     color: black;
+     width: 70%;
+     margin-top: 30px;
+     padding-top: 2px;
+     margin-left: 270px;
+ }
+
+ /*  Why */
+ .bx-1 {
+     grid-area: b1;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .b-2 {
+     grid-area: b2;
+     background-color: white;
+     padding-top: 20px;
+     padding-left: 40px;
+ }
+
+ .b-3 {
+     grid-area: b3;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .b-4 {
+     grid-area: b4;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .b-5 {
+     grid-area: b5;
+     background-color: white;
+     padding: 20px;
+ }
+
+ .why {
+     display: grid;
+     grid-template-rows: 300px;
+     grid-template-areas: "b5 b1 b2 b3 b4";
+     gap: 5px;
+     margin-top: 10px;
+     margin-left: 40px;
+     margin-right: 50px;
+     text-align: center;
+ }
+
+ .why img {
+     height: 80px;
+     width: 80px;
+     border: 1px solid black;
+     border-radius: 40px;
+     padding: 8px;
+     background-color: rgb(220, 240, 240);
+ }
+
+ .why h3 {
+     font-family: sans-serif;
+     font-size: 40px;
+     padding-bottom: 20px;
+     text-align: center;
+ }
+
+ /*hr*/
+ #hr3 {
+     color: black;
+     width: 70%;
+     margin-top: 30px;
+     padding-top: 2px;
+     margin-left: 270px;
+ }
+
+ /*Reviews*/
+ .card-img-top {
+     height: 20px;
+     width: 20px;
+     margin: 10px;
+ }
+
+ .cards-wrapper {
+     display: flex;
+ }
+
+ .card {
+     margin: 0 1em;
+     width: calc(100%/3);
+ }
+
+ #carouselExampleControls h3 {
+     font-family: sans-serif;
+     font-size: 30px;
+     padding-bottom: 20px;
+     text-align: center;
+     padding-top: 30px;
+ }
+
+
+ /*hr*/
+ #hr4 {
+     color: black;
+     width: 70%;
+     margin-top: 30px;
+     padding-top: 2px;
+     margin-left: 270px;
+ }
+
+ .cards-img-top {
+     height: 20px;
+     width: 20px;
+     margin-left: 420px;
+ }
+
+
+
+
+ /* Footer */
+ .footer {
+     padding-top: 10px;
+     padding-bottom: 10px;
+ }
+
+
+
+
+
+
+
+ /* About Us */
+
+
+ #about-us {
+     background-color: #21211f;
+     color: white;
+
+     padding: 20px;
+
+ }
+
+ .about {
+
+     text-align: center;
+ }
+
+ .list {
+
+     list-style-position: inside;
+ }
+
+
+
+ /*Up-Button*/
+ .gotopbtn {
+     position: fixed;
+     width: 50px;
+     height: 50px;
+     background: #27ae60;
+     bottom: 40px;
+     right: 50px;
+
+     text-decoration: none;
+     text-align: center;
+     line-height: 50px;
+     color: rgb(0, 0, 0);
+     font-size: 22px;
+     border-radius: 3rem;
+ }

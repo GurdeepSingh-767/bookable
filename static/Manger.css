@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Navbar*/
+header {
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+}
+
+.contact_btn {
+    background-color: red;
+    text-decoration: none;
+    color: #fff;
+    padding: 6px 20px;
+    margin-right: 10px;
+}
+
+.right_nav i {
+
+    color: #fff;
+    margin-left: 15px;
+    margin-right: 20px;
+    padding-top: 10px;
+
+    padding-bottom: 10px;
+}
+
+/*List Your Business*/
+.form-popup {
+    background-color: #000608;
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgb(0, 0, 0);
+    padding: 50px;
+    border-radius: 25px;
+    opacity: 85%;
+
+}
+
+.radio-option {
+    color: white;
+    font-size: larger;
+
+}
+
+
+.submit-cance {
+
+    align-content: center;
+}
+
+
+.list-business {
+    margin-right: 27px;
+}
+
+.navbar-nav .nav-item {
+
+    margin-right: 50px;
+}
+
+#book {
+    color: #ec5600;
+}
+
+/* Search */
+.search-btn {
+    display: flex;
+
+}
+
+.col-sm-3 {
+    align-items: center;
+
+}
+
+.search-btn-1 {
+    margin-left: 20%;
+    margin-right: 17px;
+}
+
+.search-btn-2 {
+
+    margin-right: 17px;
+}
+
+.search-btn-3 {
+
+    margin-right: 17px;
+}
+
+
+/* About Us */
+
+
+#about-us {
+    background-color: #21211f;
+    color: white;
+
+    padding: 20px;
+
+}
+
+.about {
+
+    text-align: center;
+}
+
+.list {
+
+    list-style-position: inside;
+}
+
+
+/*Up-Button*/
+.gotopbtn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #27ae60;
+    bottom: 40px;
+    right: 50px;
+
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    border-radius: 3rem;
+}
+
+
+/* Footer */
+.footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.my-book {
+    margin-left: 150px;
+}
