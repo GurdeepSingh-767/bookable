@@ -59,6 +59,25 @@ Here we can maintain the records of Booking and Customer.
 * Taking Feedback from customer.
 * Rating the venues based on the feedback.
 
+## Contributing
+
+Contributions are welcome! If you have any ideas, suggestions, or improvements, please open an issue or submit a pull request. 
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+## Acknowledgements
+
+- [Unsplash](https://unsplash.com) for providing beautiful food imagery.
+- [FontAwesome](https://fontawesome.com) for the icons used in the landing page.
+
+## Resources
+
+- [Documentation](https://github.com/GurdeepSingh-767/bookable/tree/main/Documents) - Detailed project report is here attached
+- [Demo]() - Live demonstration of the bookable website .
+  
+---
 ## Conclusion
 
 The Online Venue Booking System has been developed to replace the manual process of booking venue. As an attempt to develop which makes it easier to book a venue online which makes it easier to find a venue of their choice, which is done online using the computers instead of going to place and hunt.
