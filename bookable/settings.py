@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bookable',
         'USER': 'root',
-        'PASSWORD': 'Golu@1234',
+        'PASSWORD': 'test@1234',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -149,6 +149,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mustkeem1310@gmail.com'
-EMAIL_HOST_PASSWORD = 'dbbmacgfoeytmkrr'
+EMAIL_HOST_USER = 'email'
+EMAIL_HOST_PASSWORD = '12345'
 EMAIL_PORT = 587
